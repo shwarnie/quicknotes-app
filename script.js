@@ -136,3 +136,16 @@ function loadNotes() {
 loadNotes();
 updateCount();
 render(getFilteredNotes());
+
+
+clearAllButton.addEventListener("click", () => {
+    if (notes.length === 0) {
+        return;
+    }
+
+    if (confirm("Delete all notes?")) {
+        notes = [];
+        saveNotes();
+        render();
+    }
+});
