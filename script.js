@@ -75,9 +75,13 @@ function getFilteredNotes() {
         return notes;
     }
 
-    return notes.filter((note) =>
-        note.text.toLowerCase().includes(searchTerm)
-    );
+    const searchWords = searchTerm.split(/\s+/);
+
+    return notes.filter((note) => {
+        const noteText = note.text.toLowerCase();
+
+        return searchWords.every((word) => noteText.includes(word));
+    });
 }
 
 noteForm.addEventListener("submit", (event) => {
@@ -131,4 +135,4 @@ function loadNotes() {
 
 loadNotes();
 updateCount();
-render(updateCount());
+render(getFilteredNotes());
