@@ -1,10 +1,4 @@
-const noteForm = document.querySelector("#note-form");
-const noteInput = document.querySelector("#note-input");
-const noteCategory = document.querySelector("#note-category");
-const notesList = document.querySelector("#notes-list");
-const noteCount = document.querySelector("#note-count");
-const errorMessage = document.querySelector("#error-message");
-const searchInput = document.querySelector("#search-input");
+
 
 let notes = [];
 
