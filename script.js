@@ -114,7 +114,7 @@ noteForm.addEventListener("submit", (event) => {
 
     saveNotes();
     updateCount();
-    render(getFilteredNotes());
+    render(getFilteredNotes());s
 });
 
 searchInput.addEventListener("input", () => {
