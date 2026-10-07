@@ -1,4 +1,12 @@
 
+const noteForm = document.querySelector("#note-form");
+const noteInput = document.querySelector("#note-input");
+const noteCategory = document.querySelector("#note-category");
+const notesList = document.querySelector("#notes-list");
+const noteCount = document.querySelector("#note-count");
+const errorMessage = document.querySelector("#error-message");
+const searchInput = document.querySelector("#search-input");
+
 
 let notes = [];
 
@@ -30,11 +38,7 @@ function render(notesToRender = notes) {
         const date = document.createElement("small");
         date.classList.add("note-date");
         date.textContent = note.createdAt;
-
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-button");
-        deleteButton.type = "button";
-        deleteButton.textContent = "Delete";
+n.textContent = "Delete";
 
         deleteButton.addEventListener("click", () => {
             notes = notes.filter((item) => item.id !== note.id);
@@ -56,6 +60,10 @@ function updateCount() {
     if (notes.length === 0) {
         noteCount.textContent = "You have no notes yet.";
     } else if (notes.length === 1) {
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.type = "button";
+        deleteButto
         noteCount.textContent = "You have 1 note.";
     } else {
         noteCount.textContent = `You have ${notes.length} notes.`;
@@ -65,6 +73,7 @@ function updateCount() {
 function getFilteredNotes() {
     const searchTerm = searchInput.value.trim().toLowerCase();
 
+    
     if (searchTerm === "") {
         return notes;
     }
